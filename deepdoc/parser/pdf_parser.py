@@ -40,7 +40,7 @@ from common.file_utils import get_project_base_directory
 from common.misc_utils import pip_install_torch
 from deepdoc.vision import OCR, AscendLayoutRecognizer, LayoutRecognizer, Recognizer, TableStructureRecognizer
 from rag.app.picture import vision_llm_chunk as picture_vision_llm_chunk
-from rag.nlp import rag_tokenizer
+from rag.nlp import rag_tokenizer, is_chinese
 from rag.prompts.generator import vision_llm_describe_prompt
 from common import settings
 
@@ -742,7 +742,7 @@ class RAGFlowPdfParser:
             if (
                 b["text"].strip()[0] != b_["text"].strip()[0]
                 or b["text"].strip()[0].lower() in set("qwertyuopasdfghjklzxcvbnm")
-                or rag_tokenizer.is_chinese(b["text"].strip()[0])
+                or is_chinese(b["text"].strip()[0])
                 or b["top"] > b_["bottom"]
             ):
                 i += 1
