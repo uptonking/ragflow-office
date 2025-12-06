@@ -7,20 +7,21 @@ admin:
 mysql:
   name: 'rag_flow'
   user: 'root'
-  password: 'infini_rag_flow'
+  password: '11111111'
   host: 'localhost'
-  port: 5455
+  # port: 5455
+  port: 3306
   max_connections: 900
   stale_timeout: 300
   max_allowed_packet: 1073741824
 minio:
-  user: 'rag_flow'
-  password: 'infini_rag_flow'
+  user: 'minioadmin'
+  password: 'minioadmin'
   host: 'localhost:9000'
 es:
-  hosts: 'http://localhost:1200'
+  hosts: 'http://localhost:9200'
   username: 'elastic'
-  password: 'infini_rag_flow'
+  password: '11111111'
 os:
   hosts: 'http://localhost:1201'
   username: 'admin'
@@ -39,7 +40,7 @@ oceanbase:
 redis:
   db: 1
   username: ''
-  password: 'infini_rag_flow'
+  password: ''
   host: 'localhost:6379'
 task_executor:
   message_queue_type: 'redis'
